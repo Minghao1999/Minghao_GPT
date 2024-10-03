@@ -12,4 +12,14 @@ const getMessages = async () =>{
     }
 }
 
-export {getMessages}
+const postMessage = async (message) =>{
+    try{
+        const response = await axios.post(`${baseURL}/post`,message)
+        return response.data
+    }catch (error){
+        console.error('Error sending messages', error)
+        throw error
+    }
+}
+
+export {getMessages, postMessage}

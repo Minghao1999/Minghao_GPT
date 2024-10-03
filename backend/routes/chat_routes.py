@@ -7,22 +7,28 @@ chat_bp = Blueprint('chat', __name__)
 
 @chat_bp.route('/post', methods=['POST'])
 def chat():
-    data_model = DataModel(current_app.config['MONGO_URI'])  # Pass in mongo_uri
-    data = request.json
-    user_message = data.get('text')
+    try:
+        data_model = DataModel(current_app.config['MONGO_URI'])
+        data = request.json
+        user_message = data.get('text')
+        current_app.logger.info(f'Received message: {user_message}')
 
     # Store user message in MongoDB
-    user_data = {'text': user_message, 'sender': 'user'}
-    data_model.insert_data(user_data)
+        user_data = {'text': user_message, 'sender': 'user'}
+        data_model.insert_data(user_data)
 
     # Get assistant's reply
-    assistant_message = chat_with_assistant(user_message)
+        assistant_message = chat_with_assistant(user_message)
 
     # Store assistant reply in MongoDB
-    assistant_data = {'text': assistant_message, 'sender': 'bot'}
-    data_model.insert_data(assistant_data)
+        assistant_data = {'text': assistant_message, 'sender': 'bot'}
+        data_model.insert_data(assistant_data)
 
-    return jsonify({'reply': assistant_message})
+        return jsonify({'reply': assistant_message})
+
+    except Exception as e:
+        current_app.logger.error(f'Error in /post: {str(e)}')
+        return jsonify({'error': str(e)}), 500
 
 
 @chat_bp.route('/get', methods=['GET'])

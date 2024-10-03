@@ -1,13 +1,23 @@
 import {useEffect, useState} from "react";
-import {getMessages} from "../API/Chats_API.jsx";
-import '../UI/Chat.css'
+import {getMessages, postMessage} from "../API/Messages_API.jsx";
+import '../UI/Messages.css'
 
-const Chat_page= ()=>{
+const Message_page= ()=>{
     const [message, setMessage] = useState([])
     const [input, setInput] = useState('')
 
     const sendMessage = async () =>{
-
+        if (input.trim()){
+            const userMessage = {text: input, sender: 'user'}
+            setMessage((prev)=>[...prev, userMessage])
+            setInput('')
+            try{
+                const botResponse = await postMessage(userMessage)
+                setMessage((prev)=>[...prev, {text: botResponse.reply, sender: 'bot'}])
+            }catch (error){
+                console.error('Error sending message:',error)
+            }
+        }
     }
 
     useEffect(() => {
@@ -25,14 +35,24 @@ const Chat_page= ()=>{
     return(
         <div className="chat-container">
             <div className="chat-message">
-                {message.map((message, index)=>(
-                <div key={index} className={`chat-message ${message.sender}`}>
-                    {message.text}
-                </div>
-            ))}
+                {message.map((message, index) => (
+                    <div key={index} className={`chat-message ${message.sender}`}>
+                        {message.text}
+                    </div>
+                ))}
+            </div>
+            <div className="chat-input">
+                <input
+                    type="text"
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
+                    placeholder="Type a message"
+                />
+                <button onClick={sendMessage}>Send</button>
             </div>
         </div>
     )
 }
 
-export default Chat_page
+export default Message_page
