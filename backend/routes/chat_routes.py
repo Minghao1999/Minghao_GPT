@@ -24,7 +24,7 @@ def chat():
         assistant_data = {'text': assistant_message, 'sender': 'bot'}
         data_model.insert_data(assistant_data)
 
-        return jsonify({'reply': assistant_message})
+        return jsonify({'text': assistant_message})
 
     except Exception as e:
         current_app.logger.error(f'Error in /post: {str(e)}')

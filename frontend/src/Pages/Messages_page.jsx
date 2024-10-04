@@ -1,10 +1,11 @@
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {getMessages, postMessage} from "../API/Messages_API.jsx";
 import '../UI/Messages.css'
 
 const Message_page= ()=>{
     const [message, setMessage] = useState([])
     const [input, setInput] = useState('')
+    const messageEndRef = useRef(null)
 
     const sendMessage = async () =>{
         if (input.trim()){
@@ -13,7 +14,7 @@ const Message_page= ()=>{
             setInput('')
             try{
                 const botResponse = await postMessage(userMessage)
-                setMessage((prev)=>[...prev, {text: botResponse.reply, sender: 'bot'}])
+                setMessage((prev)=>[...prev, {text: botResponse.text, sender: 'bot'}])
             }catch (error){
                 console.error('Error sending message:',error)
             }
@@ -32,6 +33,10 @@ const Message_page= ()=>{
         getMessage()
     }, []);
 
+    useEffect(() => {
+        messageEndRef.current?.scrollIntoView({behavior:'smooth'})
+    }, [message]);
+
     return(
         <div className="chat-container">
             <div className="chat-message">
@@ -40,6 +45,7 @@ const Message_page= ()=>{
                         {message.text}
                     </div>
                 ))}
+                <div ref={messageEndRef}/>
             </div>
             <div className="chat-input">
                 <input
