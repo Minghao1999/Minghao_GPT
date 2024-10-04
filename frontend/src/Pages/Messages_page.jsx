@@ -39,7 +39,7 @@ const Message_page= ()=>{
 
     return(
         <div className="chat-container">
-            <div className="chat-message">
+            <div className="chat-messages">
                 {message.map((message, index) => (
                     <div key={index} className={`chat-message ${message.sender}`}>
                         {message.text}

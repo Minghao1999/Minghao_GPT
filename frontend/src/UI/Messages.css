@@ -3,35 +3,49 @@
     flex-direction: column;
     justify-content: flex-end;
     background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .chat-messages {
     flex-grow: 1;
     overflow-y: auto;
-    padding: 10px;
+    padding-left: 300px;
+    padding-right: 300px;
     background-color: white;
-    border: 1px solid #ccc;
+    border: 10px ;
     border-radius: 5px;
     margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 888px) {
+    .chat-messages {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
 }
 
 .chat-message {
-    margin: 10px 0;
+    margin: 15px 0;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 15px;
     max-width: 60%;
-    margin-left: 20%;
+    display: inline-block;
 }
 
 .chat-message.user {
-    align-self: flex-end;
-    background-color: #007bff;
+    background-color: #000000;
     color: white;
+    text-align: right;
+    margin-left: auto;
+    border-radius: 15px 15px 0 15px; /* 可选：用户消息的气泡形状 */
 }
 
 .chat-message.bot {
-    align-self: flex-start;
     background-color: #e1e1e1;
+    border-radius: 15px 15px 15px 0; /* 可选：机器人消息的气泡形状 */
 }
 
 .chat-input {
@@ -50,13 +64,14 @@
 
 .chat-input button {
     padding: 10px;
-    background-color: #007bff;
+    background-color: #000000;
     color: white;
     border: none;
     cursor: pointer;
     margin-left: 10px;
+    border-radius: 10px;
 }
 
 .chat-input button:hover {
-    background-color: #0056b3;
+    background-color: #000000;
 }
