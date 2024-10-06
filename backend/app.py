@@ -5,8 +5,7 @@ import logging
 from flask_cors import CORS
 
 app = Flask(__name__)
-app.logger.setLevel(logging.INFO)
-CORS(app, resources={r"/get": {"origins": "http://localhost:5173"}})
+CORS(app)
 app.config.from_object(Config)
 
 # Register blueprints

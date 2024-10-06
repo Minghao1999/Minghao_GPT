@@ -1,9 +1,7 @@
-import openai
 import os
 from config import Config
-from langchain.embeddings.openai import OpenAIEmbeddings
-from langchain.vectorstores import DeepLake
-from langchain.chat_models import ChatOpenAI
+from langchain_openai import OpenAIEmbeddings, ChatOpenAI
+from langchain_community.vectorstores import DeepLake
 from langchain.chains import RetrievalQA
 
 # Set OpenAI API key
@@ -14,7 +12,7 @@ embeddings = OpenAIEmbeddings(disallowed_special=())
 db = DeepLake(
     dataset_path="hub://sun989minghao/resume_minghao",
     read_only=True,
-    embedding_function=embeddings
+    embedding=embeddings
 )
 
 retriever = db.as_retriever()
@@ -42,7 +40,6 @@ context = [
 def get_completion_from_messages(messages):
     # Concatenate the context messages
     query = ' '.join(msg['content'] for msg in messages)
-    # Call the QA chain instead of OpenAI API directly
     result = qa({"query": query})
     return result['result']
 
