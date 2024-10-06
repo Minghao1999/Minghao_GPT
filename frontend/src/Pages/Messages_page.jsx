@@ -1,11 +1,15 @@
 import {useEffect, useRef, useState} from "react";
 import {getMessages, postMessage} from "../API/Messages_API.jsx";
 import '../UI/Messages.css'
+import Message from "../Components/Message.jsx";
+import Loading from "../Components/Loading.jsx";
+import Landing from "../Components/Landing.jsx";
 
 const Message_page= ()=>{
     const [message, setMessage] = useState([])
     const [input, setInput] = useState('')
     const messageEndRef = useRef(null)
+    const [loading, setLoading] = useState(false)
 
     const sendMessage = async () =>{
         if (input.trim()){
@@ -29,11 +33,14 @@ const Message_page= ()=>{
 
     useEffect(() => {
         const getMessage = async () =>{
+            setLoading(true)
             try{
                 const messagesData = await getMessages()
                 setMessage(messagesData)
             }catch (error){
                 console.error('Failed to get messages:', error)
+            }finally {
+                setLoading(false)
             }
         }
         getMessage()
@@ -45,14 +52,14 @@ const Message_page= ()=>{
 
     return(
         <div className="chat-container">
-            <div className="chat-messages">
-                {message.map((message, index) => (
-                    <div key={index} className={`chat-message ${message.sender}`}>
-                        {message.text}
-                    </div>
-                ))}
-                <div ref={messageEndRef}/>
-            </div>
+            {message.length > 0 ? (
+                <>
+                    <Message messages={message}/>
+                    <div ref={messageEndRef}/>
+                </>
+            ):(
+                <Loading/>
+            )}
             <div className="chat-input">
                 <input
                     type="text"
