@@ -12,9 +12,15 @@ const Message_page= ()=>{
             const userMessage = {text: input, sender: 'user'}
             setMessage((prev)=>[...prev, userMessage])
             setInput('')
+
+            const thinkingMessage = {text:'thinking...', sender: 'thinking'}
+            setMessage((prev)=>[...prev, thinkingMessage])
             try{
                 const botResponse = await postMessage(userMessage)
-                setMessage((prev)=>[...prev, {text: botResponse.text, sender: 'bot'}])
+                setMessage((prev)=>{
+                    const newMessages = prev.filter(msg => msg.sender !== 'thinking')
+                    return [...newMessages, {text: botResponse.text, sender: 'bot'}]
+                })
             }catch (error){
                 console.error('Error sending message:',error)
             }
