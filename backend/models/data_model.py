@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from pymongo import MongoClient
 
 class DataModel:
@@ -7,7 +9,7 @@ class DataModel:
         self.collection = self.db['messages']
 
     def insert_data(self, data):
-
+        data['timestamp'] = datetime.utcnow()
         result = self.collection.insert_one(data)
         return str(result.inserted_id)
 

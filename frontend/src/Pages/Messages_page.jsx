@@ -1,16 +1,18 @@
-import {useEffect, useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {getMessages, postMessage} from "../API/Messages_API.jsx";
 import '../UI/Messages.css'
 import Message from "../Components/Message.jsx";
 import Loading from "../Components/Loading.jsx";
 import Landing from "../Components/Landing.jsx";
+import SideNav from "../Components/SideNav.jsx";
 
 const Message_page= ()=>{
     const [message, setMessage] = useState([])
     const [input, setInput] = useState('')
     const messageEndRef = useRef(null)
     const [loading, setLoading] = useState(false)
-
+    const [historyMessages, setHistoryMessages] = useState([])
+    const [isSideNavOpen, setIsSideNavOpen] = useState(false)
     const sendMessage = async () =>{
         if (input.trim()){
             const userMessage = {text: input, sender: 'user'}
@@ -31,12 +33,24 @@ const Message_page= ()=>{
         }
     }
 
+    const handleSelectHistoryMessage = (index) =>{
+        const selectedMessage = historyMessages[index]
+        if (selectedMessage){
+            setMessage([selectedMessage])
+        }
+    }
+
+    const toggleSideNav = () =>{
+        setIsSideNavOpen(!isSideNavOpen)
+    }
+
     useEffect(() => {
         const getMessage = async () =>{
             setLoading(true)
             try{
                 const messagesData = await getMessages()
                 setMessage(messagesData)
+                setHistoryMessages(messagesData)
             }catch (error){
                 console.error('Failed to get messages:', error)
             }finally {
@@ -52,6 +66,19 @@ const Message_page= ()=>{
 
     return(
         <div className="chat-container">
+            <button
+                className='toggle-btn outside'
+                onClick={toggleSideNav}
+            >
+                Open
+            </button>
+            <SideNav
+                historyMessages={historyMessages}
+                onMessageSelect={handleSelectHistoryMessage}
+                isOpen={isSideNavOpen}
+                toggleSideNav={toggleSideNav}
+            />
+            <div className={`chat-content ${isSideNavOpen ? 'sidenav-open' : ''}`}>
             {message.length > 0 ? (
                 <>
                     <Message messages={message}/>
@@ -60,7 +87,8 @@ const Message_page= ()=>{
             ):(
                 <Loading/>
             )}
-            <div className="chat-input">
+            <div className={`chat-input-container ${isSideNavOpen ? 'sidenav-open' : ''}`}>
+                <div className="chat-input">
                 <input
                     type="text"
                     value={input}
@@ -69,6 +97,8 @@ const Message_page= ()=>{
                     placeholder="Type a message"
                 />
                 <button onClick={sendMessage}>Send</button>
+            </div>
+            </div>
             </div>
         </div>
     )

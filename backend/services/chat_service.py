@@ -9,6 +9,7 @@ os.environ['OPENAI_API_KEY'] = Config.OPENAI_API_KEY
 
 
 embeddings = OpenAIEmbeddings(disallowed_special=())
+
 db = DeepLake(
     dataset_path="hub://sun989minghao/resume_minghao",
     read_only=True,
@@ -30,9 +31,9 @@ qa = RetrievalQA.from_chain_type(
 
 context = [
     {'role': 'system', 'content': """
-        You are the author of the resume, your name is Minghao Sun.
-        You can to answer questions related to that resume.
-        You need to give a list format to answer questions when the answer is a long paragraph.
+        You are the author of the resume, your name is Minghao Sun.\
+        You answer questions related to that resume.\
+        If the answer is long, separate it into sections using line breaks and numbered lists\
     """}
 ]
 
