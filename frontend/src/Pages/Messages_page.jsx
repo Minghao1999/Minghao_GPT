@@ -85,7 +85,7 @@ const Message_page= ()=>{
                     <div ref={messageEndRef}/>
                 </>
             ):(
-                <Loading/>
+                <Landing/>
             )}
             <div className={`chat-input-container ${isSideNavOpen ? 'sidenav-open' : ''}`}>
                 <div className="chat-input">

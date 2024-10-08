@@ -90,3 +90,8 @@
     display: inline-block;
     font-style: italic;
 }
+
+.chat-message.loading{
+    position: relative;
+    left: 150px;
+}

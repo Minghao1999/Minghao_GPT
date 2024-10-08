@@ -16,7 +16,7 @@ const SideNav = ({historyMessages, onMessageSelect, isOpen, toggleSideNav})=>{
                     <ul>
                         {historyMessages.map((msg, index) => (
                             <li key={index} onClick={() => onMessageSelect(index)}>
-                                {msg.text.length > 20 ? `{msg.text.substring(0, 20)}...` : msg.text}
+                                {msg.text.length > 20 ? msg.text.substring(0, 20) : msg.text}
                             </li>
                         ))}
                     </ul>
