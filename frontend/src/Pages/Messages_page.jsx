@@ -13,9 +13,10 @@ const Message_page= ()=>{
     const [loading, setLoading] = useState(false)
     const [historyMessages, setHistoryMessages] = useState([])
     const [isSideNavOpen, setIsSideNavOpen] = useState(false)
-    const sendMessage = async () =>{
-        if (input.trim()){
-            const userMessage = {text: input, sender: 'user'}
+    const sendMessage = async (msg) =>{
+        const userInput = msg || input.trim()
+        if (userInput){
+            const userMessage = {text: userInput, sender: 'user'}
             setMessage((prev)=>[...prev, userMessage])
             setInput('')
 
@@ -39,6 +40,10 @@ const Message_page= ()=>{
 
     const toggleSideNav = () =>{
         setIsSideNavOpen(!isSideNavOpen)
+    }
+
+    const handleCardClick = (cardMessage) =>{
+        sendMessage(cardMessage)
     }
 
     useEffect(() => {
@@ -81,7 +86,7 @@ const Message_page= ()=>{
                     <div ref={messageEndRef}/>
                 </>
             ):(
-                <Landing/>
+                <Landing onCardClick={handleCardClick}/>
             )}
             <div className={`chat-input-container ${isSideNavOpen ? 'sidenav-open' : ''}`}>
                 <div className="chat-input">

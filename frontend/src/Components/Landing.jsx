@@ -1,7 +1,7 @@
 import React from 'react';
 import '../UI/Landing.css'
 
-const Landing = () => {
+const Landing = ({onCardClick}) => {
     return (
         <div className="landing-container">
             <div className="landing-content">
@@ -10,10 +10,10 @@ const Landing = () => {
             </div>
 
             <div className="card-container">
-                <div className="card">Minghao's Resume</div>
-                <div className="card">Card 2</div>
-                <div className="card">Card 3</div>
-                <div className="card">Card 4</div>
+                <div className="card" onClick={()=>onCardClick('Tell me about Minghao\'s education.')}>Education</div>
+                <div className="card" onClick={()=>onCardClick('Tell me about Minghao\'s work experience.')}>Work Experience</div>
+                <div className="card" onClick={()=>onCardClick('Tell me about Minghao\'s professional skills.')}>Professional skills</div>
+                <div className="card" onClick={()=>onCardClick('Tell me about Minghao\'s career planning.')}>Career Planning</div>
             </div>
         </div>
     );
