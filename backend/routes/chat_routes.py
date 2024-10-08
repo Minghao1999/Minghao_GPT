@@ -34,9 +34,6 @@ def chat():
 @chat_bp.route('/get', methods=['GET'])
 def get_all_chats():
     data_model = DataModel(current_app.config['MONGO_URI'])
-    chats = data_model.get_all_data()
-    chat_list = []
-    for chat in chats:
-        chat_list.append({'id': str(chat['_id']), 'text': chat['text'], 'sender': chat['sender']})
+    grouped_chats = data_model.get_all_data_grouped_by_date()
 
-    return jsonify(chat_list)
+    return jsonify(grouped_chats)

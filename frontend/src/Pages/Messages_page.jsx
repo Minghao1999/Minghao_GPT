@@ -33,11 +33,8 @@ const Message_page= ()=>{
         }
     }
 
-    const handleSelectHistoryMessage = (index) =>{
-        const selectedMessage = historyMessages[index]
-        if (selectedMessage){
-            setMessage([selectedMessage])
-        }
+    const handleSelectDateMessages = (date, messages) =>{
+        setMessage(messages)
     }
 
     const toggleSideNav = () =>{
@@ -49,7 +46,6 @@ const Message_page= ()=>{
             setLoading(true)
             try{
                 const messagesData = await getMessages()
-                setMessage(messagesData)
                 setHistoryMessages(messagesData)
             }catch (error){
                 console.error('Failed to get messages:', error)
@@ -74,7 +70,7 @@ const Message_page= ()=>{
             </button>
             <SideNav
                 historyMessages={historyMessages}
-                onMessageSelect={handleSelectHistoryMessage}
+                onDateSelect={handleSelectDateMessages}
                 isOpen={isSideNavOpen}
                 toggleSideNav={toggleSideNav}
             />
