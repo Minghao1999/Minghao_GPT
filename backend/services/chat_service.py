@@ -47,13 +47,11 @@ def get_completion_from_messages(messages):
 
 def chat_with_assistant(user_message):
     global context
-    # Add user message to context
+
     context.append({'role': 'user', 'content': user_message})
 
-    # Call OpenAI API
     assistant_message = get_completion_from_messages(context)
 
-    # Add assistant reply to context
     context.append({'role': 'assistant', 'content': assistant_message})
 
     return assistant_message

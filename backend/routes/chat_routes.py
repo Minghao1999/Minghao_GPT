@@ -13,14 +13,11 @@ def chat():
         user_message = data.get('text')
         current_app.logger.info(f'Received message: {user_message}')
 
-    # Store user message in MongoDB
         user_data = {'text': user_message, 'sender': 'user'}
         data_model.insert_data(user_data)
 
-    # Get assistant's reply
         assistant_message = chat_with_assistant(user_message)
 
-    # Store assistant reply in MongoDB
         assistant_data = {'text': assistant_message, 'sender': 'bot'}
         data_model.insert_data(assistant_data)
 
