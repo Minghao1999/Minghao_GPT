@@ -7,3 +7,4 @@ langchain-openai
 langchain-community
 python-dotenv
 requests
+config
