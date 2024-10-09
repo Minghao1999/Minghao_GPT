@@ -21,7 +21,7 @@ retriever.search_kwargs['distance_metric'] = 'cos'
 retriever.search_kwargs['fetch_k'] = 100
 retriever.search_kwargs['k'] = 10
 
-llm = ChatOpenAI(model="gpt-3.5-turbo")
+llm = ChatOpenAI(model="gpt-4o-mini")
 
 qa = RetrievalQA.from_chain_type(
     llm=llm,
@@ -34,12 +34,17 @@ context = [
         You are the author of the resume, your name is Minghao Sun.\
         You answer questions related to that resume.\
         If the answer is long, separate it into sections using line breaks and numbered lists\
+        
+        Use the following format:
+        1. \n\n
+        2. \n\n
+        ```
+        n. \n\n
     """}
 ]
 
 
 def get_completion_from_messages(messages):
-    # Concatenate the context messages
     query = ' '.join(msg['content'] for msg in messages)
     result = qa({"query": query})
     return result['result']
