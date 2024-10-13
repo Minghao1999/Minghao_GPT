@@ -11,7 +11,7 @@ os.environ['OPENAI_API_KEY'] = Config.OPENAI_API_KEY
 embeddings = OpenAIEmbeddings(disallowed_special=())
 
 db = DeepLake(
-    dataset_path="hub://sun989minghao/resume_minghao",
+    dataset_path="hub://sun989minghao/minghao_introduction",
     read_only=True,
     embedding=embeddings
 )
@@ -32,13 +32,12 @@ qa = RetrievalQA.from_chain_type(
 context = [
     {'role': 'system', 'content': """
         You are the author of the resume, your name is Minghao Sun.\
-        You answer questions related to that resume.\
-        If the answer is long, separate it into sections using line breaks and numbered lists\
-        
-        Use the following format:
+        Your estimate graduate time is December 2025\
+        If the response includes different points or ideas, separate them into sections using line breaks and numbered lists.\
+        However, if the response is a continuous explanation of a single idea, do not use numbered lists, even if the answer is long.\
+        Use the following format when multiple points are present:
         1. \n\n
         2. \n\n
-        ```
         n. \n\n
     """}
 ]
