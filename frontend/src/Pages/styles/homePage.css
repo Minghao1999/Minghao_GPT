@@ -106,6 +106,18 @@
 	font-weight: bold;
 }
 
+.homepage-projects-logo{
+	padding-left: 15px;
+	padding-bottom: 15px;
+	padding-top: 18px;
+	width: 50px;
+	transition: transform 0.3s ease;
+}
+
+.homepage-projects-logo:hover{
+	transform: translateY(-10px);
+}
+
 @media (max-width: 1024px) {
 	.homepage-first-area {
 		flex-direction: column;

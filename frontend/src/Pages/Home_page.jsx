@@ -80,6 +80,15 @@ const Home_page = () => {
                     </div>
 
                     <div className="homepage-projects">
+                        <h1>Tech Stack</h1>
+                        {
+                            INFO.stack.logo.map((item, index)=>(
+                                <img key={index} src={item} alt={`logo-${index}`} className="homepage-projects-logo"/>
+                            ))
+                        }
+                    </div>
+
+                    <div className="homepage-projects">
                         <h1>Projects</h1>
                         <AllProjects/>
                     </div>

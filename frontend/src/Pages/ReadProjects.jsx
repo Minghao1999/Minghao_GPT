@@ -22,6 +22,13 @@ const ReadProjects = () => {
                                         <li key={index}>{item}</li>
                                     ))}</p>
                                 </ul>
+
+                                <div>
+                                    {project.logos.map((logo, index)=>(
+                                        <img key={index} src={logo} alt={`logo-${index}`} className="read-projects-logo"/>
+                                    ))}
+                                </div>
+
                                 <a href={project.link} target="_blank">
                                     View Project on GitHub
                                 </a>
