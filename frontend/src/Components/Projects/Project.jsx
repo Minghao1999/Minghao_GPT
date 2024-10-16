@@ -5,12 +5,14 @@ import {faLink} from "@fortawesome/free-solid-svg-icons";
 
 const Project = (props) => {
     const {id, logo, title, description, linkText, link} = props
+    const isChatGPTLogo = logo === "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg";
+
 
     return (
         <div className="project">
             <Link to={`/read-projects/${id}`}>
                 <div className="project-container">
-                    <div className="project-logo">
+                    <div className={`project-logo ${isChatGPTLogo ? 'chatgpt-logo' : ''}`}>
                         <img src={logo} alt="logo"/>
                     </div>
                     <div className="project-title">{title}</div>

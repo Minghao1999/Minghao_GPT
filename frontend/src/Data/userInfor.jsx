@@ -26,7 +26,7 @@ const INFO = {
             title: "iEcho",
             description:
                 "Do you want to talk with Elon Reeve Musk or other celebrities. Try iEcho! It can imitate the tone of celebrities and chat with you when the celebrities are not online.",
-            logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
+            logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/typescript/typescript.png",
             linkText: "View Project",
             link: "https://github.com/Minghao1999/iEcho-Agent",
             technology:
@@ -39,7 +39,7 @@ const INFO = {
             title: "Pacific Dorm",
             description:
                 "Are you always troubled by dealing with damaged items in the dormitory? Using this software can let managers know your needs immediately.",
-            logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/html/html.png",
+            logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
             linkText: "View Project",
             link: "https://github.com/Minghao1999/Pacific_Dorm",
             technology:

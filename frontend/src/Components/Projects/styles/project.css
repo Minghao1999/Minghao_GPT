@@ -34,6 +34,10 @@
 	width: 100%;
 }
 
+.chatgpt-logo img{
+	width: 270%;
+}
+
 .project-title {
 	font-family: var(--secondary-font);
 	color: var(--primary-color);
