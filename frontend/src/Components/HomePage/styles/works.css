@@ -20,36 +20,30 @@
 .homepage-work-date {
 	opacity: 1;
 	color: var(--tertiary-color);
-	font-size: 12px;
+	font-size: 15px;
 	margin-bottom: 1em;
+}
+
+.homepage-work-name {
+	opacity: 1;
+	color: var(--primary-color);
+	font-size: 20px;
+	margin-bottom: 1em;
+	font-weight: 700;
 }
 
 .homepage-work-title {
 	opacity: 1;
-	color: var(--primary-color);
-	font-size: 16px;
-	margin-bottom: 1em;
-	font-weight: 700;
+	font-size: 17px;
+	line-height: 1.5;
 }
 
 .homepage-work-description {
 	opacity: 1;
-	color: var(--secondary-color);
-	font-size: 12px;
+	font-size: 15px;
 	line-height: 1.5;
 }
 
-.homepage-work-link {
-	opacity: 1;
-	padding-top: 20px;
-	font-size: 15px;
-	font-weight: 700;
-}
-
-.homepage-work-link a {
-	color: var(--link-color);
-	text-decoration: none;
-}
 
 @media (max-width: 600px) {
 	.homepage-work {

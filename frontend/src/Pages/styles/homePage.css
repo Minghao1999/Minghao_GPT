@@ -99,6 +99,13 @@
 	padding-top: 30px;
 }
 
+.homepage-title2{
+	position: relative;
+	left: 25px;
+	font-size: 40px;
+	font-weight: bold;
+}
+
 @media (max-width: 1024px) {
 	.homepage-first-area {
 		flex-direction: column;

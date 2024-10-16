@@ -8,6 +8,7 @@ import {faGithub, faInstagram, faLinkedin} from "@fortawesome/free-brands-svg-ic
 import {faMailBulk} from "@fortawesome/free-solid-svg-icons";
 import AllProjects from "../Components/Projects/AllProjects.jsx";
 import Works from "../Components/HomePage/Works.jsx";
+import Educations from "../Components/HomePage/Educations.jsx";
 
 const Home_page = () => {
     return (
@@ -79,12 +80,14 @@ const Home_page = () => {
                     </div>
 
                     <div className="homepage-projects">
+                        <h1>Projects</h1>
                         <AllProjects/>
                     </div>
 
                     <div className="homepage-after-title">
                         <div className="homepage-articles">
-                            {INFO.works.map((work, index)=>(
+                            <div className="homepage-title2">Work Experiences</div>
+                            {INFO.works.map((work, index) => (
                                 <div
                                     className="homepage-article"
                                     key={index.toString()}
@@ -98,6 +101,13 @@ const Home_page = () => {
                                     />
                                 </div>
                             ))}
+                        </div>
+                    </div>
+
+                    <div className="homepage-after-title">
+                        <div className="homepage-articles">
+                            <div className="homepage-title2">Education</div>
+                            <Educations/>
                         </div>
                     </div>
 

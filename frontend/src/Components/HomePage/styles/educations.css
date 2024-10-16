@@ -1,0 +1,52 @@
+@import "../../../data/styles.css";
+
+.homepage-work {
+	width: 90%;
+	mix-blend-mode: normal;
+	border-radius: 20px;
+	opacity: 0.8;
+}
+
+.homepage-work:hover {
+	background: #fafafa;
+	opacity: 1;
+	transition: background-color 0.3s ease-in-out;
+}
+
+.homepage-work-content {
+	padding: 30px;
+}
+
+.homepage-work-date {
+	opacity: 1;
+	color: var(--tertiary-color);
+	font-size: 15px;
+	margin-bottom: 1em;
+}
+
+.homepage-work-name {
+	opacity: 1;
+	color: var(--primary-color);
+	font-size: 20px;
+	margin-bottom: 1em;
+	font-weight: 700;
+}
+
+.homepage-work-title {
+	opacity: 1;
+	font-size: 17px;
+	line-height: 1.5;
+	margin-bottom: 10px;;
+}
+
+.homepage-work-description {
+	opacity: 1;
+	font-size: 15px;
+	line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+	.homepage-work {
+		width: 100%;
+	}
+}

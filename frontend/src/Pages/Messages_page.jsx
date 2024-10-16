@@ -5,6 +5,7 @@ import Message from "../Components/Message/Message.jsx";
 import Loading from "../Components/Message/Loading.jsx";
 import Landing from "../Components/Message/Landing.jsx";
 import SideNav from "../Components/Message/SideNav.jsx";
+import NavBar from "../Components/Common/NavBar.jsx";
 
 const Message_page= ()=>{
     const [message, setMessage] = useState([])
@@ -67,6 +68,7 @@ const Message_page= ()=>{
 
     return(
         <div className="chat-container">
+            <NavBar active="message"/>
             <button
                 className='toggle-btn outside'
                 onClick={toggleSideNav}

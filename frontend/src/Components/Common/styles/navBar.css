@@ -17,7 +17,7 @@
 }
 
 .nav-background {
-	width: 380px;
+	width: 480px;
 	height: 40px;
 	padding-left: 0%;
 	padding-right: 0%;
@@ -38,11 +38,11 @@
 
 .nav-item {
 	font-weight: bold;
-	font-size: 80%;
+	font-size: 110%;
 }
 
 .nav-item.active a {
-	color: var(--link-color) !important;
+	color: #0056b3 !important;
 }
 
 .nav-item a {
@@ -51,7 +51,7 @@
 }
 
 .nav-item a:hover {
-	color: var(--link-color);
+	color: #0056b3;
 	transition: color 0.3s ease-in-out;
 }
 
