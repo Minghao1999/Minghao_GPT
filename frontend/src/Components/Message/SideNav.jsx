@@ -1,5 +1,5 @@
 import React from "react";
-import '../UI/SideNav.css';
+import './styles/SideNav.css';
 
 const SideNav = ({ historyMessages, onDateSelect, isOpen, toggleSideNav }) => {
 

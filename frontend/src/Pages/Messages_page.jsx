@@ -1,10 +1,10 @@
 import React, {useEffect, useRef, useState} from "react";
 import {getMessages, postMessage} from "../API/Messages_API.jsx";
-import '../UI/Messages.css'
-import Message from "../Components/Message.jsx";
-import Loading from "../Components/Loading.jsx";
-import Landing from "../Components/Landing.jsx";
-import SideNav from "../Components/SideNav.jsx";
+import '../Components/Message/styles/Messages.css'
+import Message from "../Components/Message/Message.jsx";
+import Loading from "../Components/Message/Loading.jsx";
+import Landing from "../Components/Message/Landing.jsx";
+import SideNav from "../Components/Message/SideNav.jsx";
 
 const Message_page= ()=>{
     const [message, setMessage] = useState([])

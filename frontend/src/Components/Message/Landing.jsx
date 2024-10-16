@@ -1,5 +1,5 @@
 import React from 'react';
-import '../UI/Landing.css'
+import './styles/Landing.css'
 
 const Landing = ({onCardClick}) => {
     return (
