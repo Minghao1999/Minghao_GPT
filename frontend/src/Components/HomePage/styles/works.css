@@ -1,0 +1,58 @@
+@import "../../../data/styles.css";
+
+.homepage-work {
+	width: 90%;
+	mix-blend-mode: normal;
+	border-radius: 20px;
+	opacity: 0.8;
+}
+
+.homepage-work:hover {
+	background: #fafafa;
+	opacity: 1;
+	transition: background-color 0.3s ease-in-out;
+}
+
+.homepage-work-content {
+	padding: 30px;
+}
+
+.homepage-work-date {
+	opacity: 1;
+	color: var(--tertiary-color);
+	font-size: 12px;
+	margin-bottom: 1em;
+}
+
+.homepage-work-title {
+	opacity: 1;
+	color: var(--primary-color);
+	font-size: 16px;
+	margin-bottom: 1em;
+	font-weight: 700;
+}
+
+.homepage-work-description {
+	opacity: 1;
+	color: var(--secondary-color);
+	font-size: 12px;
+	line-height: 1.5;
+}
+
+.homepage-work-link {
+	opacity: 1;
+	padding-top: 20px;
+	font-size: 15px;
+	font-weight: 700;
+}
+
+.homepage-work-link a {
+	color: var(--link-color);
+	text-decoration: none;
+}
+
+@media (max-width: 600px) {
+	.homepage-work {
+		width: 100%;
+	}
+}
