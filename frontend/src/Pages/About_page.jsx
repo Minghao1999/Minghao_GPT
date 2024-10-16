@@ -31,7 +31,7 @@ const About_page = () => {
                             <div className="about-image-container">
                                 <div className="about-image-wrapper">
                                     <img
-                                        src="./assets/icon.png"
+                                        src="./assets/about.PNG"
                                         alt="about"
                                         className="about-image"
                                     />
