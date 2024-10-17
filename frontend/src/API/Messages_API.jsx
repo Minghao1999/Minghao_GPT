@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const baseURL = 'http://127.0.0.1:5000'
+const baseURL = 'https://10.15.159.178:5001'
 
 const getMessages = async () =>{
     try{
-        const response = await axios.get(`${baseURL}/get`)
+        const response = await axios.get(`${baseURL}/message`)
         return response.data
     }catch (error){
         console.error('Error getting chats', error)
