@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = 'https://10.15.159.178:5001'
+const baseURL = 'http://10.15.159.178:5001'
 
 const getMessages = async () =>{
     try{
