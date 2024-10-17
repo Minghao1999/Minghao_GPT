@@ -1,7 +1,7 @@
 from flask import Flask, send_from_directory
 from config import Config
 from routes.chat_routes import chat_bp
-import logging
+import os
 from flask_cors import CORS
 
 app = Flask(__name__, static_folder='dist', static_url_path='/')
@@ -20,4 +20,5 @@ def serve_static(path):
     return send_from_directory(app.static_folder, path)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5001))
+    app.run(host= '0.0.0.0', port=port)
