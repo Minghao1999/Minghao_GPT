@@ -86,3 +86,14 @@
     margin-left: 200px;
     transition: margin-left 0.3s ease;
 }
+
+@media (max-width: 600px) {
+    .toggle-btn.outside {
+        width: 45px;
+        font-size: 10px;
+    }
+    .toggle-btn.inside {
+        width: 45px;
+        font-size: 10px;
+    }
+}
