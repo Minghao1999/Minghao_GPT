@@ -70,7 +70,27 @@
 }
 
 @media (max-width: 600px) {
-	.project {
-		height: 300px;
-	}
+    .project {
+        height: auto;
+        padding: 15px;
+    }
+
+    .project-description {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .project-container {
+        padding: 15px;
+    }
+
+    .project-title {
+        font-size: 14px;
+        margin-bottom: 0.5em;
+    }
+
+    .project-link-text {
+        font-size: 11px;
+    }
 }
+
