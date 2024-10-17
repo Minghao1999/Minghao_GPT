@@ -42,6 +42,14 @@
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
+.issue{
+    font-family: "Roboto Light", "Ubuntu Light", "Ubuntu", monospace;
+    font-size: 10px;
+    position: relative;
+    top: 20px;
+    color: #14b8a6;
+}
+
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
