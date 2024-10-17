@@ -1,15 +1,23 @@
-from flask import Flask
+from flask import Flask, send_from_directory
 from config import Config
 from routes.chat_routes import chat_bp
 import logging
 from flask_cors import CORS
 
-app = Flask(__name__)
-CORS(app)
+app = Flask(__name__, static_folder='dist', static_url_path='/')
+CORS(app, resource={r"/*": {"origins": "http://localhost:5173"}})
 app.config.from_object(Config)
 
 # Register blueprints
 app.register_blueprint(chat_bp)
+
+@app.route('/')
+def serve_frontend():
+    return send_from_directory(app.static_folder, 'index.html')
+
+@app.route('/<path:path>')
+def serve_static(path):
+    return send_from_directory(app.static_folder, path)
 
 if __name__ == '__main__':
     app.run(debug=True)

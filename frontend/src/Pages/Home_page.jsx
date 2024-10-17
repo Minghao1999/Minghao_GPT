@@ -9,7 +9,7 @@ import {faMailBulk} from "@fortawesome/free-solid-svg-icons";
 import AllProjects from "../Components/Projects/AllProjects.jsx";
 import Works from "../Components/HomePage/Works.jsx";
 import Educations from "../Components/HomePage/Educations.jsx";
-
+import homepageImage from '../../assets/homepage.jpg'
 const Home_page = () => {
     return (
         <div className="page-content">
@@ -32,7 +32,7 @@ const Home_page = () => {
                             <div className="homepage-image-container">
                                 <div className="homepage-image-wrapper">
                                     <img
-                                        src="/assets/homepage.jpg"
+                                        src={homepageImage}
                                         alt="about"
                                         className="homepage-image"
                                     />

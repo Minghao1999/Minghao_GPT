@@ -5,6 +5,7 @@ import INFO from "../Data/userInfor.jsx"
 import Socials from "../Components/About/Socials.jsx";
 import Footer from "../Components/Common/Footer.jsx";
 import {useEffect} from "react";
+import aboutImage from '../../assets/about1.jpg'
 
 const About_page = () => {
     useEffect(() => {
@@ -31,7 +32,7 @@ const About_page = () => {
                             <div className="about-image-container">
                                 <div className="about-image-wrapper">
                                     <img
-                                        src="./assets/about.PNG"
+                                        src={aboutImage}
                                         alt="about"
                                         className="about-image"
                                     />
