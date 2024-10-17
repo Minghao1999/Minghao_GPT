@@ -5,7 +5,7 @@ import os
 from flask_cors import CORS
 
 app = Flask(__name__, static_folder='dist', static_url_path='/')
-CORS(app, resource={r"/*": {"origins": "http://localhost:5173"}})
+CORS(app, resource={r"/*": {"origins": "*"}})
 app.config.from_object(Config)
 
 # Register blueprints
