@@ -41,6 +41,16 @@ const NavBar = (props) =>{
 
                         <li
                             className={
+                                active === "map"
+                                    ? "nav-item active"
+                                    : "nav-item"
+                            }
+                        >
+                            <Link to="/map">Location</Link>
+                        </li>
+
+                        <li
+                            className={
                                 active === "message"
                                     ? "nav-item active"
                                     : "nav-item"
