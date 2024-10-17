@@ -5,7 +5,7 @@ from models.data_model import DataModel
 chat_bp = Blueprint('chat', __name__)
 
 
-@chat_bp.route('/post', methods=['POST'])
+@chat_bp.route('/post', methods=['POST', 'OPTIONS'])
 def chat():
     try:
         data_model = DataModel(current_app.config['MONGO_URI'])
@@ -28,7 +28,7 @@ def chat():
         return jsonify({'error': str(e)}), 500
 
 
-@chat_bp.route('/get', methods=['GET'])
+@chat_bp.route('/message', methods=['GET'])
 def get_all_chats():
     data_model = DataModel(current_app.config['MONGO_URI'])
     grouped_chats = data_model.get_all_data_grouped_by_date()
