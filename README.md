@@ -2,6 +2,7 @@
 
 This is a smart chatbot also named Minghao. You can ask some questions about work and education experiences about Minghao.
 
+![GIF](frontend/assets/readme.gif)
 
 # Frontend
 
