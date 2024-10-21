@@ -6,7 +6,7 @@ from pymongo import MongoClient
 class DataModel:
     def __init__(self, mongo_uri):
         self.client = MongoClient(mongo_uri)
-        self.db = self.client['DC_GPT']
+        self.db = self.client['Minghao_GPT']
         self.collection = self.db['messages']
         self.pacific_tz = pytz.timezone('America/Los_Angeles')
 

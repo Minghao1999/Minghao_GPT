@@ -5,7 +5,7 @@ from models.data_model import DataModel
 chat_bp = Blueprint('chat', __name__)
 
 
-@chat_bp.route('/post', methods=['POST', 'OPTIONS'])
+@chat_bp.route('/post', methods=['POST'])
 def chat():
     try:
         data_model = DataModel(current_app.config['MONGO_URI'])
