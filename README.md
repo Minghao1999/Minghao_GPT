@@ -10,7 +10,7 @@ The frontend developed by **React**.
 
 # Backend
 
-The backend developed by **Flask**. It is worth noting that, I use **deeplake** as Vector Database, **GPT-4o-mini** as LLM, **RAG** technology to let model search my profile to generate answers, **MongoDB** to store history messages.
+The backend developed by **Node.js*. It is worth noting that, I use **Pinecone** as Vector Database, **gpt-3.5-turbo** as LLM, **RAG** technology to let model search my profile to generate answers, **MongoDB** to store history messages.
 
 # Future development
 
@@ -44,14 +44,12 @@ Create an _**.env**_ file in backend directories. You need set up your MongoDB U
 
 1. Navigate to the backend
 
-    `cd backend`
+    `cd server`
 
 2. Install dependencies
 
-    `source venv/bin/activate`
-
-    `pip install requirements.txt`
+    `npm i`
 
 3. Start the backend
 
-    `python3 app.py`
+    `npm run dev`
