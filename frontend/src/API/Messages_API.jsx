@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = 'http://127.0.0.1:3000'
+const baseURL = 'https://minghao-gpt.onrender.com'
 
 const getMessages = async () => {
     try {
