@@ -5,7 +5,7 @@ import INFO from "../Data/userInfor.jsx"
 import Socials from "../Components/About/Socials.jsx";
 import Footer from "../Components/Common/Footer.jsx";
 import {useEffect} from "react";
-import aboutImage from '../../assets/about1.jpg'
+import aboutImage from '../../assets/about2.jpg'
 
 const About_page = () => {
     useEffect(() => {
