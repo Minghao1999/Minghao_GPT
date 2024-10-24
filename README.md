@@ -15,11 +15,16 @@ The backend developed by **Node.js*. It is worth noting that, I use **Pinecone**
 # Tech Stack
 
 o Frontend: Built with React, responsive web design showcases the user's education, projects, and skills.
+
 o Backend: Node.js powers the server-side processing and handles API calls.
+
 o Vector Database (Pinecone): Stores the user’s information as embeddings to facilitate similarity searches for questions.
+
 o GPT-3.5 from OpenAI: Generating text embeddings using the text-embedding-ada-002 model and Processes user questions to generate
 contextual answers.
+
 o Database: MongoDB is used to store conversation histories.
+
 o Pipeline: Implemented end-to-end document processing pipeline from text extraction to embedding storage with metadata.
 
 
